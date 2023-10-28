@@ -27,7 +27,7 @@ RUN echo $DONOTCACHE && \
     mkdir -p data/dependencies data/modules data/configurations && \
     chown bbr:bbr -R /app
 
-COPY --chown=bbr:bbr ./appsettings.json /app
+COPY --chown=bbr:bbr . /app
 
 USER bbr:bbr
 
@@ -35,4 +35,4 @@ USER bbr:bbr
 VOLUME ["/app/data"]
 EXPOSE 29294
 
-ENTRYPOINT ["dotnet", "BattleBitAPIRunner.dll"]
+CMD ["dotnet", "BattleBitAPIRunner.dll"]
